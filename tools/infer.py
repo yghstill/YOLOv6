@@ -89,9 +89,7 @@ def run(weights=osp.join(ROOT, 'yolov6s.pt'),
     else:
         LOGGER.warning('Save directory already existed')
     if save_txt:
-        save_txt_path = osp.join(save_dir, 'labels')
-        if not osp.exists(save_txt_path):
-            os.makedirs(save_txt_path)
+        os.mkdir(osp.join(save_dir, 'labels'))
 
     # Inference
     inferer = Inferer(source, weights, device, yaml, img_size, half)
